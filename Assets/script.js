@@ -28,27 +28,24 @@ $(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   // 2nd todo: Color code time blocks based on time of day
-    var currentHour = Number(dayjs().hour());
+    var currentHour = dayjs().hour();
     console.log(currentHour);
     $(".time-block").each(function () {
-      console.log(this);
-      var scheduleTime = $(this).attr("id");
-      console.log(Number(scheduleTime));
-      if (currentHour > Number(scheduleTime)) {
-        $(".time-block").addClass("past");
+  
+      var scheduleTime = parseInt($(this).attr("id"));
+      console.log(scheduleTime);
+      if (currentHour > scheduleTime) { // 'this' was used instead of calling the class name .time-block, originally was causing future class to be applied to all time blocks
+        $(this).addClass("past");$(this).removeClass("present"); 
+        $(this).removeClass("future");
+      } else if (currentHour === scheduleTime) {
+        $(this).addClass("present"); 
+        $(this).removeClass("past"); 
+        $(this).removeClass("future");
       } else {
-        $(".time-block").removeClass("past");
-      }
-      if (currentHour === Number(scheduleTime)) {
-        $(".time-block").addClass("present");
-      } else {
-        $(".time-block").removeClass("present");
-      }
-      if (currentHour < Number(scheduleTime)) {
-        $(".time-block").addClass("future");
-      } else {
-        $(".time-block").removeClass("future");
-      }
+        $(this).addClass("future"); 
+        $(this).removeClass("past"); 
+        $(this).removeClass("present");
+      } 
     });
     
 

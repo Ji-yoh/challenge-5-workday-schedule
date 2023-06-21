@@ -31,4 +31,4 @@ indicate whether it is in the past, present, or future
 ![Scheduler](./Assets/scheduler_screenshot.png)
 
 ## Deployed URL
-https://ji-yoh.github.io/
+https://ji-yoh.github.io/challenge-5-workday-schedule/

@@ -67,5 +67,6 @@ $(function () {
     console.log(localStorage.getItem("17"));
   // TODO: Add code to display the current date in the header of the page.
   // 4th todo: Display current date in header, use Day.js
+  $("#currentDay").text(dayjs().format("dddd, MMMM D, YYYY"));
   
 });

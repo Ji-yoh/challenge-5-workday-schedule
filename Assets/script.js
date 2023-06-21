@@ -6,7 +6,7 @@ $(function () {
     $(".saveBtn").on("click", function () {
       var time = $(this).parent().attr("id");
       var text = $(this).siblings(".description").val();
-      console.log(time, text);
+      
       localStorage.setItem(time, text);
       // originally saved time and text to local storage as an object called savedItems, but was unable to retrieve the object from local storage. saved time and text as individual items instead.
       /* var savedItems = JSON.parse(localStorage.getItem("savedItems"));
@@ -50,7 +50,6 @@ $(function () {
   $("#15 .description").val(localStorage.getItem("15"));
   $("#16 .description").val(localStorage.getItem("16"));
   $("#17 .description").val(localStorage.getItem("17"));
-    console.log(localStorage.getItem("17"));
   
   // 4th todo: Display current date in header, use Day.js
   $("#currentDay").text(dayjs().format("dddd, MMMM D, YYYY"));
